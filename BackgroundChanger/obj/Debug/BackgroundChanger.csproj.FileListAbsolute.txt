@@ -1,0 +1,6 @@
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\BackgroundChanger\bin\Debug\BackgroundChanger.exe.config
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\BackgroundChanger\bin\Debug\BackgroundChanger.exe
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\BackgroundChanger\bin\Debug\BackgroundChanger.pdb
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\BackgroundChanger\obj\Debug\BackgroundChanger.csprojResolveAssemblyReference.cache
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\BackgroundChanger\obj\Debug\BackgroundChanger.exe
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\BackgroundChanger\obj\Debug\BackgroundChanger.pdb

@@ -1,0 +1,6 @@
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Debug\TaskScheduler.exe.config
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Debug\TaskScheduler.exe
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Debug\TaskScheduler.pdb
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\obj\Debug\TaskScheduler.csprojResolveAssemblyReference.cache
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\obj\Debug\TaskScheduler.exe
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\obj\Debug\TaskScheduler.pdb

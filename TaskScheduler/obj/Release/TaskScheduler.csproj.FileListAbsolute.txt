@@ -1,0 +1,6 @@
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Release\TaskScheduler.exe.config
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Release\TaskScheduler.exe
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Release\TaskScheduler.pdb
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\bin\Release\Microsoft.Win32.TaskScheduler.dll
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\obj\Release\TaskScheduler.exe
+C:\Users\stanislav.stoychev\Documents\Learning\TrollProjects\TaskScheduler\obj\Release\TaskScheduler.pdb
