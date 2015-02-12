@@ -11,24 +11,26 @@ namespace TaskScheduler
 {
     class Program
     {
+        private static string _applicationPath;
+
         static void Main(string[] args)
         {
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string location = System.IO.Path.GetDirectoryName(path);
+            _applicationPath = System.IO.Path.GetDirectoryName(path);
+
             try
             {
-                CreateTask(location);
+                CreateTask();
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+                throw;
             }
             Console.WriteLine("Task created successfully.");
             Console.ReadLine();
         }
 
-        static void CreateTask(string location)
+        private static void CreateTask()
         {
             double triggerOffset = double.Parse(ConfigurationManager.AppSettings["initialOffsetMinutes"]);
             double intervalRepeat = double.Parse(ConfigurationManager.AppSettings["repeatIntervalMinutes"]);
@@ -44,18 +46,29 @@ namespace TaskScheduler
                 trigger.Repetition.Interval = TimeSpan.FromMinutes(intervalRepeat);
                 td.Triggers.Add(trigger);
 
-                // Create an action that will launch Notepad whenever the trigger fires
-                td.Actions.Add(
-                    new ExecAction(location + "\\backgroundchanger.exe", "\"" + location + "\\Mexican_troll.bmp" + "\""));
-                td.Actions.Add(
-                    new ExecAction(location + "\\Bamboleo - Gipsy Kings.mp3"));
-
+                // Create actions that will launch whenever the trigger fires
+                //td.Actions.Add(
+                //    new ExecAction(GetExecutingFilePath("backgroundchanger.exe"), GetBackgroundPicAsArgument("Mexican_troll.bmp")));
+                //td.Actions.Add(new ExecAction(GetExecutingFilePath("Bamboleo - Gipsy Kings.mp3")));
+                td.Actions.Add(new ExecAction(GetExecutingFilePath("screensavercreator.exe"), "/s"));
+                
+                
                 // Register the task in the root folder
-                ts.RootFolder.RegisterTaskDefinition(@"TrollApp2", td);
+                ts.RootFolder.RegisterTaskDefinition(@"TrollApp2.1", td);
 
                 // Remove the task we just created
                 //ts.RootFolder.DeleteTask("Test");
             }
+        }
+
+        private static string GetExecutingFilePath(string fileName)
+        {
+            return String.Format("{0}\\{1}", _applicationPath, fileName);
+        }
+
+        private static string GetBackgroundPicAsArgument(string fileName)
+        {
+            return String.Format("\"{0}\\{1}\"", _applicationPath, fileName);
         }
     }
 }
