@@ -22,6 +22,7 @@ namespace ScreenSaverCreator
         {
             TopMost = true;
 
+            moveTimer = new Timer();
             moveTimer.Interval = 3000;
             moveTimer.Tick += moveTimer_Tick;
             moveTimer.Start();
