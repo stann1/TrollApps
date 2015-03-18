@@ -10,26 +10,32 @@ using System.Threading.Tasks;
 
 namespace WindowsServiceHost
 {
-    public partial class TrollStealthService : ServiceBase
+    public partial class TrollService : ServiceBase
     {
-        public const int RepetitionTimeInMilliseconds = 3600*1000;
+        public const int RepetitionTimeInMilliseconds = 10*1000;
 
-        public TrollStealthService()
+        public TrollService()
         {
             InitializeComponent();
-            this.eventLog = new System.Diagnostics.EventLog();
+            
             if (!System.Diagnostics.EventLog.SourceExists("MyTrollSource"))
             {
                 System.Diagnostics.EventLog.CreateEventSource(
                     "MyTrollSource", "MyNewTrollLog");
             }
-            this.eventLog.Source = "MyTrollSource";
-            this.eventLog.Log = "MyNewTrollLog";
+        }
+
+        public void OnDebug()
+        {
+            OnStart(null);
         }
 
         protected override void OnStart(string[] args)
         {
-            this.eventLog.WriteEntry("Troll service started");
+            this.eventLog = new System.Diagnostics.EventLog();
+            this.eventLog.Source = "MyTrollSource";
+            this.eventLog.WriteEntry("Troll service started", EventLogEntryType.Information);
+
             eventTimer.Interval = RepetitionTimeInMilliseconds;
             eventTimer.Tick += eventTimer_Tick;
             eventTimer.Start();
@@ -44,7 +50,7 @@ namespace WindowsServiceHost
         {
             this.eventLog.WriteEntry("Initiate troll service timer event");
 
-            // TODO: Put the troll code here
+            Process.Start("mspaint.exe");
         }
     }
 }

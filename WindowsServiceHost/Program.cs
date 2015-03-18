@@ -14,12 +14,18 @@ namespace WindowsServiceHost
         /// </summary>
         static void Main()
         {
+#if DEBUG
+
+            TrollService service = new TrollService();
+            service.OnDebug();
+#else
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
             { 
-                new TrollStealthService() 
+                new TrollService() 
             };
             ServiceBase.Run(ServicesToRun);
+#endif
         }
     }
 }

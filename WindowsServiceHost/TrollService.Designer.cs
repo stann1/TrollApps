@@ -1,6 +1,6 @@
 ﻿namespace WindowsServiceHost
 {
-    partial class TrollStealthService
+    partial class TrollService
     {
         /// <summary> 
         /// Required designer variable.
