@@ -12,6 +12,8 @@ namespace ScreenSaverCreator
 {
     public partial class ScreenSaverForm : Form
     {
+        private const int TimerIntervalMilliseconds = 3000;
+
         public ScreenSaverForm(Rectangle bounds)
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace ScreenSaverCreator
             TopMost = true;
 
             moveTimer = new Timer();
-            moveTimer.Interval = 3000;
+            moveTimer.Interval = TimerIntervalMilliseconds;
             moveTimer.Tick += moveTimer_Tick;
             moveTimer.Start();
         }
@@ -42,6 +44,16 @@ namespace ScreenSaverCreator
         private void textLabel_MouseClick(object sender, MouseEventArgs e)
         {
             Application.Exit();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                return;
+            }
+            base.OnFormClosing(e);
         }
     }
 }

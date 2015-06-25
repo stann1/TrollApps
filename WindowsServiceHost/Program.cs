@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WindowsServiceHost
@@ -18,6 +19,7 @@ namespace WindowsServiceHost
 
             TrollService service = new TrollService();
             service.OnDebug();
+            service.OnDebugEnd();
 #else
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 

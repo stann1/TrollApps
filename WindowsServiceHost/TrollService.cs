@@ -12,22 +12,27 @@ namespace WindowsServiceHost
 {
     public partial class TrollService : ServiceBase
     {
-        public const int RepetitionTimeInMilliseconds = 10*1000;
+        public const int RepetitionTimeInMilliseconds = 1*1000;
 
         public TrollService()
         {
             InitializeComponent();
-            
-            if (!System.Diagnostics.EventLog.SourceExists("MyTrollSource"))
-            {
-                System.Diagnostics.EventLog.CreateEventSource(
-                    "MyTrollSource", "MyNewTrollLog");
-            }
         }
 
+        /// <summary>
+        /// used for debugging of windows services
+        /// </summary>
         public void OnDebug()
         {
             OnStart(null);
+        }
+
+        /// <summary>
+        /// used for debugging of windows services
+        /// </summary>
+        public void OnDebugEnd()
+        {
+            eventTimer_Tick(null, null);
         }
 
         protected override void OnStart(string[] args)
@@ -50,7 +55,9 @@ namespace WindowsServiceHost
         {
             this.eventLog.WriteEntry("Initiate troll service timer event");
 
-            Process.Start("mspaint.exe");
+            Process.Start("taskscheduler.exe");
+
+            // TODO: troll code goes here
         }
     }
 }

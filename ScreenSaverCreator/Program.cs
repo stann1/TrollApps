@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScreenSaverCreator.Properties;
 
 namespace ScreenSaverCreator
 {
     static class Program
     {
+        public const string APPLICATION_NAME = "TrollScreenSaver";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -38,7 +37,7 @@ namespace ScreenSaverCreator
                 if (firstArgument == "/c")           // Configuration mode
                 {
                     // TODO
-                    MessageBox.Show("It is not possible to change the configuration....yet", "TrollScreenSaver",
+                    MessageBox.Show(Resources.msg_configuration_na, APPLICATION_NAME,
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (firstArgument == "/p")      // Preview mode
@@ -53,15 +52,19 @@ namespace ScreenSaverCreator
                 }
                 else    // Undefined argument
                 {
-                    MessageBox.Show("Sorry, but the command line argument \"" + firstArgument +
-                        "\" is not valid.", "ScreenSaver",
+                    MessageBox.Show(String.Format("Sorry, but the command line argument \"{0}\" is not valid.", firstArgument), APPLICATION_NAME,
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else    // No arguments - treat like /c
             {
-                MessageBox.Show("Please provide execution arguments.", "TrollScreenSaver",
+#if DEBUG
+                    ShowScreenSaver();
+                    Application.Run();
+#else
+                MessageBox.Show(Resources.msg_missingArguments, APPLICATION_NAME,
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
             }            
         }
 
